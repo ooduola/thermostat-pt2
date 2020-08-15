@@ -17,10 +17,12 @@ describe("Thermostat", function () {
 		expect(thermostat.getCurrentTemp()).toEqual(19);
 	});
 
-	it(" minimum temperature is 10 degrees", function () {
+	it(" minimum temperature is 10", function () {
 		for (i = 0; i < 10; i++) {
 			thermostat.down();
 		}
-		expect(thermostat.getCurrentTemp()).toEqual(10);
+		expect(function () {
+			thermostat.down();
+		}).toThrow("Minimum temperature reached");
 	});
 });
