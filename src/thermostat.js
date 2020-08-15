@@ -1,9 +1,11 @@
 class Thermostat {
-	temperature() {
-		return 20;
+	constructor() {
+		this.temperature = 20;
 	}
-
+	getCurrentTemp() {
+		return this.temperature;
+	}
 	up() {
-		return 21;
+		this.temperature = 21;
 	}
 }
