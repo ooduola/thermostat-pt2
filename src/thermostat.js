@@ -1,1 +1,5 @@
-class Thermostat {}
+class Thermostat {
+	temperature() {
+		return 20;
+	}
+}
