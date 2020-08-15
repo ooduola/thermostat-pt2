@@ -45,4 +45,10 @@ describe("Thermostat", function () {
 			thermostat.up();
 		}).toThrow("Maximum temperature reached");
 	});
+
+	it(" resets the temperature to 20 after increased", function () {
+		thermostat.up();
+		thermostat.resetTemperature();
+		expect(thermostat.getCurrentTemp()).toEqual(20);
+	});
 });

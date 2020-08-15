@@ -13,7 +13,6 @@ class Thermostat {
 		if (this.temperature === this.MAXIMUM_TEMPERATURE) {
 			throw "Maximum temperature reached";
 		}
-
 		this.temperature++;
 	}
 
@@ -21,7 +20,6 @@ class Thermostat {
 		if (this.temperature === this.MINIMUM_TEMPERATURE) {
 			throw "Minimum temperature reached";
 		}
-
 		this.temperature--;
 	}
 
@@ -31,5 +29,9 @@ class Thermostat {
 
 	powerSavingModeOff() {
 		this.MAXIMUM_TEMPERATURE = 32;
+	}
+
+	resetTemperature() {
+		this.temperature = 20;
 	}
 }
