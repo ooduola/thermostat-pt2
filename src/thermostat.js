@@ -10,6 +10,6 @@ class Thermostat {
 	}
 
 	down() {
-		this.temperature = 19;
+		this.temperature--;
 	}
 }
