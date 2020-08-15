@@ -51,4 +51,15 @@ describe("Thermostat", function () {
 		thermostat.resetTemperature();
 		expect(thermostat.getCurrentTemp()).toEqual(20);
 	});
+
+	it(" returns medimum energy usage at default", function () {
+		expect(thermostat.getEnergyUsage()).toEqual("medium-usage");
+	});
+
+	it(" returns low energy usage below 18 degrees", function () {
+		for (i = 0; i < 3; i++) {
+			thermostat.down();
+		}
+		expect(thermostat.getEnergyUsage()).toEqual("low-usage");
+	});
 });

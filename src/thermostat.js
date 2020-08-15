@@ -34,4 +34,11 @@ class Thermostat {
 	resetTemperature() {
 		this.temperature = 20;
 	}
+
+	getEnergyUsage() {
+		if (this.temperature < 18) {
+			return "low-usage";
+		}
+		return "medium-usage";
+	}
 }
