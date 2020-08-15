@@ -7,8 +7,13 @@ class Thermostat {
 	getCurrentTemp() {
 		return this.temperature;
 	}
+
 	up() {
-		this.temperature = 21;
+		if (this.temperature == 25) {
+			throw "Maximum temperature reached";
+		}
+
+		this.temperature++;
 	}
 
 	down() {
@@ -18,4 +23,6 @@ class Thermostat {
 
 		this.temperature--;
 	}
+
+	powerSavingModeOn() {}
 }

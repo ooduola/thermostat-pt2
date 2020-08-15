@@ -25,4 +25,14 @@ describe("Thermostat", function () {
 			thermostat.down();
 		}).toThrow("Minimum temperature reached");
 	});
+
+	it(" max temperature is 25 when powering saving mode is on", function () {
+		thermostat.powerSavingModeOn();
+		for (i = 0; i < 5; i++) {
+			thermostat.up();
+		}
+		expect(function () {
+			thermostat.up();
+		}).toThrow("Maximum temperature reached");
+	});
 });
