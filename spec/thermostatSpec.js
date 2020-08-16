@@ -50,10 +50,10 @@ describe("Thermostat", function () {
 		expect(thermostat.powerSavingMode).toEqual(true);
 	});
 
-	// it(" power saving mode can be turned off", function () {
-	// 	thermostat.powerSavingModeOff();
-	// 	expect(thermostat.powerSavingMode).toEqual(false);
-	// });
+	it(" power saving mode can be turned off", function () {
+		thermostat.powerSavingModeOff();
+		expect(thermostat.powerSavingMode).toEqual(false);
+	});
 
 	it(" resets the temperature to 20 after increased", function () {
 		thermostat.up();

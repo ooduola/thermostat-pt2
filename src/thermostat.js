@@ -29,6 +29,7 @@ class Thermostat {
 	}
 
 	powerSavingModeOff() {
+		this.powerSavingMode = false;
 		this.MAXIMUM_TEMPERATURE = 32;
 	}
 
