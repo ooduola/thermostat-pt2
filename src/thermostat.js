@@ -3,6 +3,7 @@ class Thermostat {
 		this.temperature = 20;
 		this.MINIMUM_TEMPERATURE = 10;
 		this.MAXIMUM_TEMPERATURE = 25;
+		this.powerSavingMode = true;
 	}
 
 	getCurrentTemp() {
@@ -36,7 +37,9 @@ class Thermostat {
 	}
 
 	getEnergyUsage() {
-		if (this.temperature < 18) {
+		if (this.temperature > 25) {
+			return "high-usage";
+		} else if (this.temperature < 18) {
 			return "low-usage";
 		}
 		return "medium-usage";

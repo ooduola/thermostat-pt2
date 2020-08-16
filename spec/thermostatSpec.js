@@ -46,6 +46,15 @@ describe("Thermostat", function () {
 		}).toThrow("Maximum temperature reached");
 	});
 
+	it(" power saving mode is on by default", function () {
+		expect(thermostat.powerSavingMode).toEqual(true);
+	});
+
+	// it(" power saving mode can be turned off", function () {
+	// 	thermostat.powerSavingModeOff();
+	// 	expect(thermostat.powerSavingMode).toEqual(false);
+	// });
+
 	it(" resets the temperature to 20 after increased", function () {
 		thermostat.up();
 		thermostat.resetTemperature();
@@ -61,5 +70,13 @@ describe("Thermostat", function () {
 			thermostat.down();
 		}
 		expect(thermostat.getEnergyUsage()).toEqual("low-usage");
+	});
+
+	it(" returns high energy usage above 25 degrees", function () {
+		thermostat.powerSavingModeOff();
+		for (i = 0; i < 6; i++) {
+			thermostat.up();
+		}
+		expect(thermostat.getEnergyUsage()).toEqual("high-usage");
 	});
 });
