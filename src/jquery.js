@@ -17,7 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("current-temp").innerHTML = thermostat.up();
 	});
 
-	// document.getElementById("down").addEventListener("click", function () {
-	// 	document.getElementById("current-temp").innerHTML = thermostat.down();
-	// });
+	document.getElementById("down").addEventListener("click", function () {
+		document.getElementById("current-temp").innerHTML = thermostat.down();
+	});
+
+	document.getElementById("PSM-off").addEventListener("click", function () {
+		document.getElementById("power-saving-mode").innerHTML = "Off";
+	});
 });

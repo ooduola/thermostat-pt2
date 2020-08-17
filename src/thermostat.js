@@ -17,14 +17,14 @@ class Thermostat {
 
 	up() {
 		if (this.isMaximumTemperature()) {
-			return;
+			return this.temperature;
 		}
 		return this.temperature++;
 	}
 
 	down() {
 		if (this.isMinimumTemperature()) {
-			return;
+			return this.temperature;
 		}
 		return this.temperature--;
 	}
@@ -35,8 +35,8 @@ class Thermostat {
 	}
 
 	powerSavingModeOff() {
-		this.powerSavingMode = false;
 		this.MAXIMUM_TEMPERATURE = this.MAX_TEMP_PSM_OFF;
+		return (this.powerSavingMode = false);
 	}
 
 	resetTemperature() {
