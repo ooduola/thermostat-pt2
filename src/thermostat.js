@@ -19,7 +19,7 @@ class Thermostat {
 		if (this.isMaximumTemperature()) {
 			return this.temperature;
 		}
-		return this.temperature++;
+		this.temperature++;
 	}
 
 	down() {
