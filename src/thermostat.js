@@ -19,14 +19,14 @@ class Thermostat {
 		if (this.isMaximumTemperature()) {
 			return;
 		}
-		this.temperature++;
+		return this.temperature++;
 	}
 
 	down() {
 		if (this.isMinimumTemperature()) {
 			return;
 		}
-		this.temperature--;
+		return this.temperature--;
 	}
 
 	powerSavingModeOn() {
