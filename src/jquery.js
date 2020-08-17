@@ -24,4 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById("PSM-off").addEventListener("click", function () {
 		document.getElementById("power-saving-mode").innerHTML = "Off";
 	});
+
+	document.getElementById("PSM-on").addEventListener("click", function () {
+		document.getElementById("power-saving-mode").innerHTML = "On";
+	});
+
+	document.getElementById("reset").addEventListener("click", function () {
+		document.getElementById(
+			"current-temp"
+		).innerHTML = thermostat.resetTemperature();
+	});
 });
