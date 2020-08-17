@@ -26,7 +26,7 @@ class Thermostat {
 		if (this.isMinimumTemperature()) {
 			return this.temperature;
 		}
-		return this.temperature--;
+		this.temperature--;
 	}
 
 	powerSavingModeOn() {
@@ -36,11 +36,11 @@ class Thermostat {
 
 	powerSavingModeOff() {
 		this.MAXIMUM_TEMPERATURE = this.MAX_TEMP_PSM_OFF;
-		return (this.powerSavingMode = false);
+		this.powerSavingMode = false;
 	}
 
 	resetTemperature() {
-		return (this.temperature = this.DEFAULT_TEMPERATURE);
+		this.temperature = this.DEFAULT_TEMPERATURE;
 	}
 
 	getEnergyUsage() {

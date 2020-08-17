@@ -2,22 +2,16 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 	var thermostat = new Thermostat();
-	document.getElementById(
-		"current-temp"
-	).innerHTML = thermostat.getCurrentTemp();
+	getUpdatedTemperature();
 
 	document.getElementById("up").addEventListener("click", function () {
 		thermostat.up();
-		document.getElementById(
-			"current-temp"
-		).innerHTML = thermostat.getCurrentTemp();
+		getUpdatedTemperature();
 	});
 
 	document.getElementById("down").addEventListener("click", function () {
 		thermostat.down();
-		document.getElementById(
-			"current-temp"
-		).innerHTML = thermostat.getCurrentTemp();
+		getUpdatedTemperature();
 	});
 
 	document.getElementById("PSM-off").addEventListener("click", function () {
@@ -31,8 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	document.getElementById("reset").addEventListener("click", function () {
-		document.getElementById(
-			"current-temp"
-		).innerHTML = thermostat.resetTemperature();
+		thermostat.resetTemperature();
+		getUpdatedTemperature();
 	});
 });
+
+var getUpdatedTemperature = function () {
+	document.getElementById(
+		"current-temp"
+	).innerHTML = thermostat.getCurrentTemp();
+};
