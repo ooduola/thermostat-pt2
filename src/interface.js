@@ -2,16 +2,22 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 	var thermostat = new Thermostat();
-	getUpdatedTemperature();
+	document.getElementById(
+		"current-temp"
+	).innerHTML = thermostat.getCurrentTemp();
 
 	document.getElementById("up").addEventListener("click", function () {
 		thermostat.up();
-		getUpdatedTemperature();
+		document.getElementById(
+			"current-temp"
+		).innerHTML = thermostat.getCurrentTemp();
 	});
 
 	document.getElementById("down").addEventListener("click", function () {
 		thermostat.down();
-		getUpdatedTemperature();
+		document.getElementById(
+			"current-temp"
+		).innerHTML = thermostat.getCurrentTemp();
 	});
 
 	document.getElementById("PSM-off").addEventListener("click", function () {
@@ -26,12 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	document.getElementById("reset").addEventListener("click", function () {
 		thermostat.resetTemperature();
-		getUpdatedTemperature();
+		document.getElementById(
+			"current-temp"
+		).innerHTML = thermostat.getCurrentTemp();
 	});
-});
 
-var getUpdatedTemperature = function () {
-	document.getElementById(
-		"current-temp"
-	).innerHTML = thermostat.getCurrentTemp();
-};
+	$.get(
+		"http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=71df5b3a7fbe60b520fbd45ec0c57c74&units=metric",
+		function (data) {
+			$("#api").text(data.main.temp);
+		}
+	);
+});
