@@ -38,28 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// Ajax request made using jQuery
-	// $.get(
-	// 	"http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=71df5b3a7fbe60b520fbd45ec0c57c74&units=metric",
-	// 	function (data) {
-	// 		$("#city-temperature").text(data.main.temp);
-	// 	}
-	// );
 	displayWeather("london");
 
+	// Ajax request made when user submits form entering city
 	$("#city-name").submit(function (e) {
 		var city = $("#city").val();
-
 		displayWeather(city);
-
-		// $.get(
-		// 	"http://api.openweathermap.org/data/2.5/weather?q=" +
-		// 		city +
-		// 		"&appid=71df5b3a7fbe60b520fbd45ec0c57c74&units=metric",
-		// 	function (data) {
-		// 		$("#city-temperature").text(data.main.temp);
-		// 		$("#current-city").text(data.name);
-		// 	}
-		// );
 		e.preventDefault();
 	});
 });
