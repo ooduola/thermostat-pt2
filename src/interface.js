@@ -1,4 +1,4 @@
-// Vanilla JS
+// Vanilla JS. Added to understand what's going on under the hood of jQuery.
 
 document.addEventListener("DOMContentLoaded", function () {
 	var thermostat = new Thermostat();
@@ -37,10 +37,25 @@ document.addEventListener("DOMContentLoaded", function () {
 		).innerHTML = thermostat.getCurrentTemp();
 	});
 
+	// Ajax request made using jQuery
 	$.get(
 		"http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=71df5b3a7fbe60b520fbd45ec0c57c74&units=metric",
 		function (data) {
-			$("#api").text(data.main.temp);
+			$("#city-temperature").text(data.main.temp);
 		}
 	);
+
+	$("#city-name").submit(function (e) {
+		var city = $("#city").val();
+
+		$.get(
+			"http://api.openweathermap.org/data/2.5/weather?q=" +
+				city +
+				"&appid=71df5b3a7fbe60b520fbd45ec0c57c74&units=metric",
+			function (data) {
+				$("#city-temperature").text(data.main.temp);
+			}
+		);
+		e.preventDefault();
+	});
 });
